@@ -18,12 +18,12 @@ export const menu: CoreMenu[] = [
     url: 'sample'
   },
   {
-    id: 'sample2',
-    title: 'Sample2',
-    translate: 'MENU.SAMPLE2',
+    id: 'product',
+    title: 'Product',
+    translate: 'MENU.PRODUCT',
     type: 'item',
     icon: 'file',
-    url: 'sample'
+    url: 'product'
   }
 
 ]
