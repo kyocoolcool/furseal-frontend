@@ -20,7 +20,6 @@ export class DataStorageService {
     }
 
     fetchProducts() {
-        console.log('aaaa');
         this.http
             .get<Product[]>(
                 'http://localhost:9000/products'

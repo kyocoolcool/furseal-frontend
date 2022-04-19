@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {Product} from './product.model';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
+import {Member} from '../member/member.model';
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +11,8 @@ import {HttpClient} from '@angular/common/http';
 export class ProductService {
     productsChanged = new Subject<Product[]>();
     private products: Product[] = [];
+    constructor(private http: HttpClient) {
+    }
 
     setProducts(products: Product[]) {
         this.products = products;
@@ -24,5 +27,9 @@ export class ProductService {
     addProduct(product: Product) {
         this.products.push(product);
         this.productsChanged.next(this.products.slice());
+    }
+
+    getProductList():Observable<Product[]> {
+        return this.http.get<Product[]>('http://localhost:9000/products');
     }
 }

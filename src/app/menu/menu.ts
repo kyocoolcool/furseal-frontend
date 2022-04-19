@@ -23,7 +23,15 @@ export const menu: CoreMenu[] = [
     translate: 'MENU.PRODUCT',
     type: 'item',
     icon: 'file',
-    url: 'product'
+    url: 'products'
+  },
+  {
+    id: 'bill',
+    title: 'Bill',
+    translate: 'MENU.BILL',
+    type: 'item',
+    icon: 'file',
+    url: 'bills'
   }
 
 ]

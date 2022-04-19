@@ -82,18 +82,18 @@
                         <hr class="invoice-spacing"/>
 
                         <div class="card-body invoice-padding">
-                            <div class="row invoice-sales-total-wrapper">
+                            <div class="row">
                                 <div class="col-md-6 order-md-1 order-2 mt-md-0 mt-3">
                                     <div class="d-flex align-items-center mb-1">
-                                        <label for="name" class="form-label">物品名稱:</label>
-                                        <input type="text" class="form-control ml-50" id="name" placeholder="name"
+                                        <label for="name" class="col-sm-2 col-form-label col-form-label-lg">名稱:</label>
+                                        <input type="text" class="form-control" id="name" placeholder="name"
                                                formControlName="name"/>
                                     </div>
                                 </div>
                                 <div class="col-md-6 order-md-1 order-2 mt-md-0 mt-3">
                                     <div class="d-flex align-items-center mb-1">
-                                        <label for="price" class="form-label">價格:</label>
-                                        <input type="text" class="form-control ml-50" id="price" placeholder="price"
+                                        <label for="price" class="col-sm-2 col-form-label col-form-label-lg">價格:</label>
+                                        <input type="text" class="form-control" id="price" placeholder="price"
                                                formControlName="price"/>
                                     </div>
                                 </div>
@@ -105,7 +105,7 @@
                 <div class="col-xl-3 col-md-4 col-12 mt-md-0 mt-2">
                     <div class="card">
                         <div class="card-body">
-                            <button type="submit" class="btn btn-outline-primary btn-block" rippleEffect>保存
+                            <button [disabled]="!productForm.valid" type="submit" class="btn btn-outline-primary btn-block" rippleEffect>保存
                             </button>
                         </div>
                     </div>

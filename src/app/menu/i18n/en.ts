@@ -4,7 +4,8 @@ export const locale = {
     MENU: {
       HOME: 'Home',
       SAMPLE: 'Sample',
-      PRODUCT: 'Product'
+      PRODUCT: 'Product',
+      BILL: 'Order'
     }
   }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../product.service';
 import {DataStorageService} from '../data-storage.service';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -31,12 +31,12 @@ export class ProductAddComponent implements OnInit {
         let productPrice = '';
 
         this.productForm = new FormGroup({
-            'name': new FormControl(productName),
-            'price': new FormControl(productPrice)
+            'name': new FormControl(productName, Validators.required),
+            'price': new FormControl(productPrice, Validators.required)
         });
     }
 
     onCancel() {
-        this.router.navigate(['/product']);
+        this.router.navigate(['/products']);
     }
 }

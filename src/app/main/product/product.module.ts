@@ -23,19 +23,19 @@ const routes = [
     data: { animation: 'home' }
   },
   {
-    path: 'product',
+    path: 'products',
     component: ProductListComponent,
-    data: { animation: 'product' }
+    data: { animation: 'products' }
   },
   {
-    path: 'product/add',
+    path: 'products/add',
     component: ProductAddComponent,
     data: { animation: 'add' }
   },
 ];
 
 @NgModule({
-  declarations: [ProductListComponent, ProductAddComponent, ProductTestComponent, SampleComponent],
+  declarations: [HomeComponent, ProductListComponent, ProductAddComponent, ProductTestComponent, SampleComponent],
   imports: [RouterModule.forChild(routes), NgbModule, ContentHeaderModule, TranslateModule, CoreCommonModule, HttpClientModule],
   exports: [ProductListComponent]
 })
