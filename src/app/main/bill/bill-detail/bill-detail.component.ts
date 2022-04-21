@@ -7,7 +7,7 @@ import {takeUntil} from 'rxjs/operators';
 import {CoreSidebarService} from '@core/components/core-sidebar/core-sidebar.service';
 import {repeaterAnimation} from '../bill.animation';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
-import {BillEditService} from '../bill-edit/invoice-edit.service';
+import {BillEditService} from '../bill-edit/bill-edit.service';
 
 @Component({
     selector: 'app-bill-detail',

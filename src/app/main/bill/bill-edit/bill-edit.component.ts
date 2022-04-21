@@ -8,11 +8,11 @@ import {CoreSidebarService} from '@core/components/core-sidebar/core-sidebar.ser
 
 import {repeaterAnimation} from 'app/main//bill/bill.animation';
 import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {DataService} from './data.service';
+import {DataService} from '../../share/data.service';
 import {karmaTargetSpec} from '@angular-devkit/build-angular/src/test-utils';
 import {DataStorageService} from '../../product/data-storage.service';
 import {ProductService} from '../../product/product.service';
-import {BillEditService} from './invoice-edit.service';
+import {BillEditService} from './bill-edit.service';
 
 @Component({
     selector: 'app-bill-edit',
@@ -187,7 +187,6 @@ export class BillEditComponent implements OnInit, OnDestroy {
     }
 
     onSubmit() {
-        console.log(this.billEditForm.value)
         this._invoiceEditService.updateBill(this.billEditForm.value);
     }
 }

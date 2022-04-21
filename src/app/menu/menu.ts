@@ -32,6 +32,14 @@ export const menu: CoreMenu[] = [
     type: 'item',
     icon: 'file',
     url: 'bills'
+  },
+  {
+    id: 'salary',
+    title: 'Salary',
+    translate: 'MENU.SALARY',
+    type: 'item',
+    icon: 'file',
+    url: 'salaries'
   }
 
 ]

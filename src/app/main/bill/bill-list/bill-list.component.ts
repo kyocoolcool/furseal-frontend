@@ -33,7 +33,7 @@ export class BillListComponent implements OnInit {
     public rows: any;
     public selected = [];
     public kitchenSinkRows: any;
-    public basicSelectedOption: number = 10;
+    public selectedOption: number = 10;
     public ColumnMode = ColumnMode;
     public expanded = {};
     public editingName = {};
@@ -44,6 +44,8 @@ export class BillListComponent implements OnInit {
     public SelectionType = SelectionType;
     public exportCSVData;
     public bills: Bill[] = [];
+    public previousStatusFilter = '';
+    public tempFilterData;
 
     @ViewChild(DatatableComponent) table: DatatableComponent;
     @ViewChild('tableRowDetails') tableRowDetails: any;
@@ -116,18 +118,16 @@ export class BillListComponent implements OnInit {
      *
      * @param event
      */
-    filterUpdate(event) {
-        const val = event.target.value.toLowerCase();
-
-        // filter our data
-        const temp = this.tempData.filter(function (d) {
-            return d.full_name.toLowerCase().indexOf(val) !== -1 || !val;
+    filterByProductName(event) {
+        let filter = event.target.value;
+        console.log(`filter: ${filter}`);
+        this.previousStatusFilter = filter;
+        filter = filter.toLowerCase();
+        this.tempFilterData = this.tempData.filter(row => {
+            const isPartialNameMatch = row.productName.toLowerCase().indexOf(filter) !== -1 || !filter;
+            return isPartialNameMatch;
         });
-
-        // update the rows
-        this.kitchenSinkRows = temp;
-        // Whenever the filter changes, always go back to the first page
-        this.table.offset = 0;
+        this.rows = this.tempFilterData;
     }
 
     /**
@@ -192,7 +192,7 @@ export class BillListComponent implements OnInit {
     ngOnInit() {
         // content header
         this.contentHeader = {
-            headerTitle: 'Datatables',
+            headerTitle: 'Bills',
             actionButton: true,
             breadcrumb: {
                 type: '',
@@ -203,13 +203,9 @@ export class BillListComponent implements OnInit {
                         link: '/'
                     },
                     {
-                        name: 'Forms & Tables',
-                        isLink: true,
-                        link: '/'
-                    },
-                    {
-                        name: 'Datatables',
-                        isLink: false
+                        name: 'Bills',
+                        isLink: false,
+                        link: '/bills'
                     }
                 ]
             }
@@ -235,5 +231,10 @@ export class BillListComponent implements OnInit {
     // }
     deleteBill(billId: number) {
         this.billListService.deleteDataTableRows(billId);
+    }
+
+    addNewBill() {
+        // this.router.navigate(['/add/1']);
+        this.router.navigate(['add/1'], {relativeTo: this.route});
     }
 }

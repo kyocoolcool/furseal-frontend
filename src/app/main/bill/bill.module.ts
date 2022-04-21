@@ -27,14 +27,10 @@ import {NgSelectModule} from '@ng-select/ng-select';
 import {CorePipesModule} from '../../../@core/pipes/pipes.module';
 import {FormsModule} from '@angular/forms';
 import {BillEditComponent} from './bill-edit/bill-edit.component';
-import {BillEditService} from './bill-edit/invoice-edit.service';
-// import {
-//   AddPaymentSidebarPreviewComponent
-// } from './bill-detail/sidebar/add-payment-sidebar-preview/add-payment-sidebar-preview.component';
-// import {
-//   SendInvoiceSidebarPreviewComponent
-// } from './bill-detail/sidebar/send-invoice-sidebar-preview/send-invoice-sidebar-preview.component';
-// import {CoreSidebarModule} from '../../../@core/components';
+import {BillEditService} from './bill-edit/bill-edit.service';
+import { BillAddComponent } from './bill-add/bill-add.component';
+import {BillAddService} from './bill-add/bill-add.services';
+
 
 const routes: Routes = [
   {
@@ -59,6 +55,20 @@ const routes: Routes = [
     resolve: {
       data: BillEditService
     }
+  },
+  {
+    path: 'bills/add',
+    component: BillAddComponent,
+    resolve: {
+      data: BillAddService
+    }
+  },
+  {
+    path: 'bills/add/:id',
+    component: BillAddComponent,
+    resolve: {
+      data: BillAddService
+    }
   }
 ];
 
@@ -70,7 +80,8 @@ const routes: Routes = [
     // SendInvoiceSidebarComponent,
     // AddPaymentSidebarComponent,
     SendInvoiceSidebarPreviewComponent,
-    AddPaymentSidebarPreviewComponent],
+    AddPaymentSidebarPreviewComponent,
+    BillAddComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -88,6 +99,6 @@ const routes: Routes = [
     Ng2FlatpickrModule,
     NgSelectModule,
   ],
-  providers: [BillListService,BillEditService]
+  providers: [BillListService, BillEditService, BillAddService]
 })
 export class BillModule {}

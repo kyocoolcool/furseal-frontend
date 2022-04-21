@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 
 import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import { delay, map, tap } from 'rxjs/operators';
-import {Bill} from '../bill.model';
-import {Member} from '../../member/member.model';
+import {Bill} from '../bill/bill.model';
+import {Member} from '../member/member.model';
 
 export interface Person {
   id: string;
