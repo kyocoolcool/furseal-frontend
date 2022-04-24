@@ -16,6 +16,9 @@ import {CorePipesModule} from '../../../@core/pipes/pipes.module';
 import {FormsModule} from '@angular/forms';
 import {SalaryListComponent} from './salary-list/salary-list.component';
 import {SalaryListService} from './salary-list/salary-list.service';
+import { SalaryDetailComponent } from './salary-detail/salary-detail.component';
+import {SalaryTaxComponent} from './salary-tax/salary-tax.component';
+import {SalaryTaxService} from './salary-tax/salary-tax.service';
 
 
 const routes: Routes = [
@@ -26,12 +29,28 @@ const routes: Routes = [
             data: SalaryListService
         },
         data: { name: 'salary' }
+    },
+    {
+        path: 'salaries/tax',
+        component: SalaryTaxComponent,
+        resolve: {
+            data: SalaryTaxService
+        },
+        data: { name: 'salaryTax' }
+    },
+    {
+        path: 'salaries/:id',
+        component: SalaryDetailComponent
     }
+
+
 ];
 
 @NgModule({
     declarations: [
-        SalaryListComponent
+        SalaryListComponent,
+        SalaryDetailComponent,
+        SalaryTaxComponent
         ],
     imports: [
         CommonModule,
@@ -50,6 +69,6 @@ const routes: Routes = [
         Ng2FlatpickrModule,
         NgSelectModule
     ],
-    providers: [SalaryListService]
+    providers: [SalaryListService,SalaryTaxService]
 })
 export class SalaryModule {}

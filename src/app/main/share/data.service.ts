@@ -5,6 +5,7 @@ import {BehaviorSubject, Observable, of, Subject} from 'rxjs';
 import { delay, map, tap } from 'rxjs/operators';
 import {Bill} from '../bill/bill.model';
 import {Member} from '../member/member.model';
+import {NgbDate} from '@ng-bootstrap/ng-bootstrap';
 
 export interface Person {
   id: string;
@@ -61,6 +62,24 @@ export class DataService {
 
   getMembers():Observable<Member[]> {
     return this.http.get<Member[]>('http://localhost:9000/members');
+  }
+
+   getBillsByMember(memberId: number):Observable<Member> {
+    return  this.http.get<Member>(`http://localhost:9000/members/${memberId}`);
+  }
+
+  querySalary(memberId: number,fromDateYear: number, fromDateMonth: number, fromDateDay: number, toDateYear: number, toDateMonth: number,toDateDay: number ):Observable<Member>  {
+    let params: any = {
+      'fromDateYear': fromDateYear,
+      'fromDateMonth': fromDateMonth,
+      'fromDateDay': fromDateDay,
+      'toDateYear': toDateYear,
+      'toDateMonth': toDateMonth,
+      'toDateDay': toDateDay
+    };
+    const url = `http://localhost:9000/members/${memberId}`;
+    return this.http.get<Member>(url, {params: params});
+
   }
 }
 

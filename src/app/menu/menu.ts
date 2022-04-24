@@ -10,19 +10,11 @@ export const menu: CoreMenu[] = [
     url: 'home'
   },
   {
-    id: 'sample',
-    title: 'Sample',
-    translate: 'MENU.SAMPLE',
-    type: 'item',
-    icon: 'file',
-    url: 'sample'
-  },
-  {
     id: 'product',
     title: 'Product',
     translate: 'MENU.PRODUCT',
     type: 'item',
-    icon: 'file',
+    icon: 'list',
     url: 'products'
   },
   {
@@ -38,8 +30,16 @@ export const menu: CoreMenu[] = [
     title: 'Salary',
     translate: 'MENU.SALARY',
     type: 'item',
-    icon: 'file',
+    icon: 'user',
     url: 'salaries'
-  }
+  },
+  // {
+  //   id: 'sample',
+  //   title: 'Sample',
+  //   translate: 'MENU.SAMPLE',
+  //   type: 'item',
+  //   icon: 'file',
+  //   url: 'sample'
+  // },
 
 ]

@@ -35,7 +35,7 @@ export class ProductListComponent implements OnInit {
     /**
      * On init
      */
-    ngOnInit() {
+       ngOnInit() {
         this.contentHeader = {
             headerTitle: 'Product',
             actionButton: true,
@@ -70,8 +70,9 @@ export class ProductListComponent implements OnInit {
         //     );
         // this.products = this.productService.getProducts();
         // if (this.products.length == 0) {
-            this.onFetchData();
-        this.products = this.productService.getProducts();
+             this.onFetchData();
+        this.products =  this.productService.getProducts();
+
         // }
 
     }

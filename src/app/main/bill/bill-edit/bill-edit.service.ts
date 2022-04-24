@@ -56,6 +56,7 @@ export class BillEditService implements Resolve<any> {
     const url = `http://localhost:9000/bills/${bill.billId}`;
     return new Promise((resolve, reject) => {
       this._httpClient.put(url,bill).subscribe((response: any) => {
+        console.log(`response: ${response}`);
         this.apiData = response;
         this.onBillEditChanged.next(this.apiData);
         resolve(this.apiData);

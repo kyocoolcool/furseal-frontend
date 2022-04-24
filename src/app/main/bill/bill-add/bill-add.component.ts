@@ -192,5 +192,8 @@ export class BillAddComponent implements OnInit, OnDestroy {
 
   onSubmit() {
     this._invoiceEditService.createBill(this.billAddForm.value);
+    this.router.navigate(['/bills']).then(() => {
+      window.location.reload();
+    });;
   }
 }
